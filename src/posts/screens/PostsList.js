@@ -1,14 +1,19 @@
-import React, {Component} from 'react';
+/* eslint-disable prettier/prettier */
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
-import {View, Text, StyleSheet} from 'react-native';
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
+import {connect} from 'remx';
+import {postsStore} from '../posts.store';
+import * as postsActions from '../posts.actions';
 
 class PostsList extends Component {
 
     static propTypes = {
-        componentId: PropTypes.string
+        componentId: PropTypes.string,
+        posts: PropTypes.array
     };
-    
+
     constructor(props) {
         super(props);
         Navigation.events().bindComponent(this);
@@ -26,21 +31,25 @@ class PostsList extends Component {
                     }
                 ]
             }
-        }
+        };
     }
-    
-    navigationButtonPressed({buttonId}) {
+
+    componentDidMount() {
+        postsActions.fetchPosts();
+    }
+
+    navigationButtonPressed({ buttonId }) {
         if (buttonId === 'addPost') {
             this.showAddPostModal();
         }
     }
 
-    pushViewPostScreen = () => {
+    pushViewPostScreen(post) {
         Navigation.push(this.props.componentId, {
             component: {
                 name: 'blog.ViewPost',
                 passProps: {
-                    somePropToPass: 'Some props that we are passing'
+                   post
                 },
                 options: {
                     topBar: {
@@ -65,16 +74,29 @@ class PostsList extends Component {
         });
     }
 
+    renderItem = ({item}) => (
+        <Text onPress={() => this.pushViewPostScreen(item)}>{item.title}</Text>
+    );
+
+    //postKeyExtractor = item => `${item.id}-key`;
+
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text} onPress={this.pushViewPostScreen}>PostList Screen</Text>
+                <Text style={styles.text}>PostsList Screen</Text>
+                <FlatList data={this.props.posts} keyExtractor={item => item.id} renderItem={this.renderItem}/>
             </View>
         );
     }
 }
 
-export default PostsList;
+function mapStateToProps() {
+    return {
+        posts: postsStore.getPosts()
+    };
+}
+
+export default connect(mapStateToProps)(PostsList);
 
 const styles = StyleSheet.create({
     container: {

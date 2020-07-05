@@ -1,34 +1,33 @@
-import React, {Component} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
-import {Navigation} from 'react-native-navigation';
+/* eslint-disable prettier/prettier */
+import React, { Component } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { Navigation } from 'react-native-navigation';
 import PropTypes from 'prop-types';
+import { deletePost } from '../posts.actions';
 
 class ViewPost extends Component {
 
     static propTypes = {
         componentId: PropTypes.string,
-        somePropToPass: PropTypes.string
+        post: PropTypes.object
     };
 
     constructor(props) {
-        super(props); 
+        super(props);
         this.onPostDeletePressed = this.onPostDeletePressed.bind(this);
     }
 
-    onPostDeletePressed() {
-
+    onPostDeletePressed = async () => {
         Navigation.pop(this.props.componentId);
-        setTimeout(() => {
-            alert('Post deleted');
-        }, 1000);
+        await deletePost(this.props.post.id);
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>ViewPost Screen</Text>
-                <Text>{this.props.somePropToPass}</Text>
-                <Button title="Delete Post" onPress={this.onPostDeletePressed} color={'red'}/>
+                <Text>{JSON.stringify(this.props.post)}</Text>
+                <Button title="Delete Post" onPress={this.onPostDeletePressed} color={'red'} />
             </View>
         );
     }
