@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button } from 'react-native-ui-lib';
 import { Navigation } from 'react-native-navigation';
 import PropTypes from 'prop-types';
 import { deletePost } from '../posts.actions';
@@ -23,28 +23,18 @@ class ViewPost extends Component {
     }
 
     render() {
+        const {title, text} = this.props.post;
+
         return (
-            <View style={styles.container}>
-                <Text style={styles.text}>ViewPost Screen</Text>
-                <Text>{JSON.stringify(this.props.post)}</Text>
-                <Button title="Delete Post" onPress={this.onPostDeletePressed} color={'red'} />
+            <View flex spread padding-24>
+                <View>
+                    <Text text30 purple10>{title}</Text>
+                    <Text text70 dark20 marginT-12>{text}</Text>
+                </View>
+                <Button label="Delete Post" text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>
             </View>
         );
     }
 }
 
 export default ViewPost;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FCDDDB',
-    },
-    text: {
-        fontSize: 28,
-        textAlign: 'center',
-        margin: 10,
-    }
-});

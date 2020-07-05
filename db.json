@@ -15,16 +15,28 @@
       "img": "http://picsum.photos/200/200/?image=2"
     },
     {
+      "title": "Post 3",
+      "text": "Post content",
+      "img": "https://picsum.photos/200/200/?image=274",
+      "id": 3
+    },
+    {
       "title": "Post 4",
-      "text": "Dsfgdf",
-      "img": "https://picsum.photos/200/200/?image=123",
+      "text": "This is goat number four",
+      "img": "https://picsum.photos/200/200/?image=69",
       "id": 4
     },
     {
       "title": "Post 5",
-      "text": "",
-      "img": "https://picsum.photos/200/200/?image=426",
+      "text": "Text",
+      "img": "https://picsum.photos/200/200/?image=250",
       "id": 5
+    },
+    {
+      "title": "Post 6\t\t",
+      "text": "Text",
+      "img": "https://picsum.photos/200/200/?image=482",
+      "id": 6
     }
   ]
 }

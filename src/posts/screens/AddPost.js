@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import { View, Text, TextField } from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation';
 import * as postActions from '../posts.actions';
@@ -74,33 +74,32 @@ class AddPost extends Component {
         postActions.addPost({
             title: this.state.title,
             text: this.state.text,
-            img: `https://picsum.photos/200/200/?image=${randomImageNumber}`
+            img: `https://picsum.photos/200/200/?image=${randomImageNumber}`,
         });
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.text}>AddPost Screen</Text>
-                <TextInput placeholder="Add a Catchy Title" value={this.state.title} onChangeText={this.onChangeTitle}/>
-                <TextInput placeholder="This is a beginning of a great post" value={this.state.text} onChangeText={this.onChangeText}/>
+            <View flex padding-24>
+                <Text text40 purple10 marginB-24>Add Post</Text>
+                <TextField
+                text70
+                containerStyle={{marginBottom: 12}}
+                floatingPlaceholder
+                placeholder="Add a Catchy Title"
+                onChangeText={this.onChangeTitle}
+                floatOnFocus
+                />
+                <TextField
+                text70
+                floatingPlaceholder
+                placeholder="This is the beginning of a great post"
+                onChangeText={this.onChangeText}
+                expandable
+                />
             </View>
         );
     }
 }
 
 export default AddPost;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#E8F7EF',
-    },
-    text: {
-        fontSize: 28,
-        textAlign: 'center',
-        margin: 10,
-    }
-});
