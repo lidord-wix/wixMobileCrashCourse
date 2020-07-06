@@ -28,10 +28,17 @@ class ViewPost extends Component {
         return (
             <View flex spread padding-24>
                 <View>
-                    <Text text30 purple10>{title}</Text>
-                    <Text text70 dark20 marginT-12>{text}</Text>
+                    <Text testID="post-title" text30 purple10>{title}</Text>
+                    <Text testID="post-text" text70 dark20 marginT-12>{text}</Text>
                 </View>
-                <Button label="Delete Post" text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>
+                <Button
+                testID="delete-post-btn"
+                label="Delete Post"
+                text80
+                red20
+                bg-red70
+                fullWidth
+                onPress={this.onPostDeletePressed}/>
             </View>
         );
     }

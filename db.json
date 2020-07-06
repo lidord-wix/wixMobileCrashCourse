@@ -3,40 +3,9 @@
     {
       "id": 1,
       "title": "Post 1",
-      "text": "Scientists have developed catalysts that can convert carbon dioxide – the main cause of global warming – into plastics, fabrics, resins and other products. The discovery, based on the chemistry of artificial photosynthesis, is detailed in the journal Energy & Environmental Science.",
+      "text": "Post 1 text",
       "author": "Post 1 text",
       "img": "http://picsum.photos/200/200/?image=1"
-    },
-    {
-      "id": 2,
-      "title": "Post 2",
-      "text": "It is one of the blessings of old friends that you can afford to be stupid with them.",
-      "author": "Post 2 text",
-      "img": "http://picsum.photos/200/200/?image=2"
-    },
-    {
-      "title": "Post 3",
-      "text": "Post content",
-      "img": "https://picsum.photos/200/200/?image=274",
-      "id": 3
-    },
-    {
-      "title": "Post 4",
-      "text": "This is goat number four",
-      "img": "https://picsum.photos/200/200/?image=69",
-      "id": 4
-    },
-    {
-      "title": "Post 5",
-      "text": "Text",
-      "img": "https://picsum.photos/200/200/?image=250",
-      "id": 5
-    },
-    {
-      "title": "Post 6\t\t",
-      "text": "Text",
-      "img": "https://picsum.photos/200/200/?image=482",
-      "id": 6
     }
   ]
 }

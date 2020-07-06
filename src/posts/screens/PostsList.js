@@ -28,6 +28,7 @@ class PostsList extends Component {
                 rightButtons: [
                     {
                         id: 'addPost',
+                        testID: 'add-post-btn',
                         text: 'Add'
                     }
                 ]
@@ -77,6 +78,7 @@ class PostsList extends Component {
 
     renderItem = ({item}) => (
         <ListItem
+        testID={`postItem-${item.id}`}
         activeBackgroundColor={Colors.purple70}
         activeOpacity={0.1}
         height={77.5}
@@ -102,7 +104,8 @@ class PostsList extends Component {
     render() {
         return (
             <FlatList 
-            data={this.props.posts} 
+            data={this.props.posts}
+            testID="posts-list" 
             keyExtractor={item => `{key-${item.id}`} 
             renderItem={this.renderItem}
             />
