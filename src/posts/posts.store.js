@@ -23,7 +23,21 @@ const setters = remx.setters({
     addPost(post) {
         state.posts = [...state.posts, post];
     },
-    
+
+    updatePost(post) {
+        state.posts = state.posts.map(item => {
+          if (item.id !== post.id) {
+            // This isn't the post we care about - keep it as-is
+            return item
+          }
+          // Otherwise, this is the one we want - return an updated value
+          return {
+            ...item,
+            ...post
+          }
+        })
+      },
+      
     deletePost(id) {
         state.posts = filter(state.posts, post => post.id !== id);
     }

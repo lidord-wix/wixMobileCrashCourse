@@ -7,8 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "start-e2e": "RN_SRC_EXT=e2e.js react-native start",
-    "test": "jest",
+    "test": "jest && detox test",
     "e2e": "detox test",
+    "watch": "jest --watch",
     "lint": "eslint .",
     "fake-server": "json-server --watch db.json"
   },
