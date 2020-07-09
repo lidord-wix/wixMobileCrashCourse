@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
-const baseUrl = 'http://localhost/posts';
+const baseUrl = 'http://localhost:3000/posts';
 
 export async function fetchPosts() {
     const response = await fetch(baseUrl);
     const posts = await response.json();
-    return posts
+    return posts;
 }
 
 export async function addPost(post) {
@@ -17,7 +17,7 @@ export async function addPost(post) {
         body: JSON.stringify(post),
     });
     const postToAdd = await response.json();
-    return postToAdd
+    return postToAdd;
 }
 
 export async function updatePost(post) {

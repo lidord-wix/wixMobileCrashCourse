@@ -17,6 +17,10 @@ describe('AddPost presenter', () => {
     Presenter = require('./AddPost.presenter');
   });
 
+  afterEach(() => {
+    jest.resetModules();
+  });
+
   it('should enable the save button if title is not blank', () => {
     Presenter.onChangeTitle({
       componentId: mockComponentId,
@@ -29,7 +33,7 @@ describe('AddPost presenter', () => {
   it('should not enable the save button if title is blank', () => {
     Presenter.onChangeTitle({
       componentId: mockComponentId,
-      title: ''
+      title: '',
     });
 
     expect(Navigation.mergeOptions.mock.calls[0][1].topBar.rightButtons[0].enabled).not.toBeTruthy();
@@ -56,6 +60,28 @@ describe('AddPost presenter', () => {
       title: mockTitle,
       text: mockText,
       img: expect.any(String)
+    });
+  });
+
+  it('should call update post action when clicking on save if given post to update', () => {
+    const postToUpdate = {
+      id: 1,
+      title: 'old-title',
+      text: 'old-text',
+      img: 'old-image'
+    }
+    Presenter.onSavePressed({
+      componentId: mockComponentId,
+      title: mockTitle,
+      text: mockText,
+      postToUpdate
+    });
+
+    expect(postsActions.updatePost).toHaveBeenCalledWith({
+      id: 1,
+      title: mockTitle,
+      text: mockText,
+      img: 'old-image'
     });
   });
 

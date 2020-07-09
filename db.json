@@ -3,9 +3,33 @@
     {
       "id": 1,
       "title": "Post 1",
-      "text": "Post 1 text",
       "author": "Post 1 text",
-      "img": "http://picsum.photos/200/200/?image=1"
+      "img": "http://picsum.photos/200/200/?image=1",
+      "text": "Post 1 text :)"
+    },
+    {
+      "title": "Post 2",
+      "img": "https://picsum.photos/200/200/?image=417",
+      "id": 2,
+      "text": "This is The text of post 2"
+    },
+    {
+      "title": "Post 3",
+      "img": "https://picsum.photos/200/200/?image=253",
+      "id": 3,
+      "text": "Text text textttt\n"
+    },
+    {
+      "title": "Post 3",
+      "text": "3",
+      "img": "https://picsum.photos/200/200/?image=163",
+      "id": 4
+    },
+    {
+      "title": "Post 3 ",
+      "text": "3",
+      "img": "https://picsum.photos/200/200/?image=416",
+      "id": 5
     }
   ]
 }
